@@ -1,0 +1,219 @@
+/* 
+HOME
+*/
+.format { 
+  width: 50%;
+  margin: 0 auto;
+}
+
+.formatButton {
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 3em;
+  padding: 30px 50px 30px;
+  width: 100%;
+  min-width: fit-content;
+}
+
+.text {
+  color: white;
+  margin-bottom: 5%;
+}
+
+.text span {
+  font-size: 1.2em;
+}
+
+h1.changeDisplay {
+  display: inline;
+}
+
+/* 
+FIM DA HOME
+*/
+
+.centralization {
+  display: flex;
+  justify-content: space-between;
+}
+
+.loginScreen {
+  line-height: 100%;
+  width: 45%;
+  border-right: 2px solid white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#buttons {
+  text-align: center;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.buttonsLogin {
+  display: flex;
+  flex-direction: row;
+  justify-content: initial;
+}
+
+.buttonsLogin button{
+  height: 100%;
+}
+
+#loginScreen.text {
+  color: white;
+  width: 40%;
+  margin-bottom: 5%;
+  border-right: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.text span {
+  font-size: 1.2em;
+}
+
+.formatNav {
+  color: white;
+  background-color: #371b64;
+  height: 80px;
+  margin-bottom: 5%;
+}
+
+.formatNav a {
+  color: white;
+}
+
+#interacao {
+  text-align: center;
+}
+
+#start .inputFormat {
+  font-size: 32px;
+  color: white;
+  padding: 5px;
+  line-height: 1.2em;
+  background-color: #5727a3;
+  border-color: white;
+  box-shadow: none;
+}
+
+
+#start .coloracao {
+  color: rgb(63, 63, 63);
+  background-color: #ffffff;
+}
+
+#buttons {
+  padding-top: 5%;
+}
+
+#spin {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  background-color: white;
+  animation: fade-saida 2s linear;
+  display: flex;
+  justify-content: center;
+
+  transition: 400ms; 
+}
+
+.hide {
+  opacity: 0;
+  display: none;
+}
+
+.spinner {
+  align-items: center;
+  align-self: center;
+  border: 8px solid #2c1552;
+  border-left-color: white;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  animation: spin 0.5s linear infinite;
+  /* opacity: 0;
+  visibility: hidden; */
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.fadeIn {
+  animation: fadeEntrada 2s linear;
+}
+
+@keyframes fadeEntrada {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  80%{
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.text .typeAnimation {
+  display: inline-block;
+  border-right: 1px solid white;
+  padding: 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.typeAnimation {
+  animation: blinkcursor linear 500ms infinite
+  ,typing  1s steps(50) 2s normal;
+}
+
+.text span {
+  display: block;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 80%;
+  }
+}
+
+@keyframes blinkcursor {
+  0% {
+    border-right-color: white;
+  }
+
+  50% {
+    border-right-color: white;
+  }
+
+  51% {
+    border-right-color: transparent;
+  }
+
+  100% {
+    border-right-color: transparent;
+  }
+}
+
+.containerStart {
+  display: flex;
+  justify-content: center;
+}
