@@ -1,34 +1,38 @@
 import { useEffect, useState } from 'react';
 import api from '../services/api';
 import styles from '../styles/pages/Home.module.css'
-
+import stylesWords from '../styles/pages/Wordlist.module.css'
 export function Login() {
 
-    let [Data, setData] = useState('');
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
 
     function sendJson() {
-        api.post("/api/login", { email, password }).then((response) => {
-            localStorage.setItem("Authorization", response.data.token)
-            return window.location.replace("/insert-words");
-        })
-            .catch((error) => {
-                console.log("ooops! " + error)
-                return window.location.replace("/login");
-
+        if (email && password) {
+            api.post("/api/login", { email, password }).then((response) => {
+                localStorage.setItem("Authorization", response.data.token)
+                return window.location.replace("/insert-words");
             })
+                .catch((error) => {
+                    window.location.replace("/login");
+                    alert("Usuário não encontrado!")
+                    return console.log("ooops! " + error)
+
+                })
+        } else {
+            alert("Dados inválidos!")
+        }
     };
 
     return (
-        <div className={styles.fadeIn + " " + styles.centralization}>
+        <div className={styles.fadeIn + " " + styles.centralization + " " + styles.padding}>
             <div className={"container " + styles.containerStart}>
                 <div id="loginScreen" className={styles.text + ' ' + styles.loginScreen}>
                     <h1 className="display-3">Faça o seu login!</h1>
                     <span>Se não tem uma conta, crie a sua agora!</span>
                 </div>
-                <div className={styles.format}>
+                <div className={stylesWords.formatLogin}>
                     <form>
                         <div className="form-group">
                             <label className="text-light d-flex flex-row h1">Email</label>

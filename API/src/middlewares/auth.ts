@@ -9,7 +9,6 @@ const authMiddleware = (request, response, next) => {
         })
     }
 
-
     const parts = authHeader.split(' ');
 
     if (!(parts.length === 2)) {
@@ -27,7 +26,7 @@ const authMiddleware = (request, response, next) => {
             return response.status(401).send({ error: 'token invalid!' })
         }
 
-        request.userId = decoded.id;
+        response.locals.userId = decoded.id;
     })
 
     return next();

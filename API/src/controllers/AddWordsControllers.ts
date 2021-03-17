@@ -5,17 +5,22 @@ import { AddWordsRepository } from '../repositories/AddWordsRepository';
 class AddWordsControllers {
 
     async create(request: Request, response: Response) {
+
+        const id_user = response.locals.userId
         const addWordsRepository = getCustomRepository(AddWordsRepository);
 
         const { portugueseWord, englishWord } = request.body;
 
-        if (portugueseWord == null || portugueseWord == undefined || englishWord == null || englishWord == undefined) {
-            return console.log("This value is null!")
+        if (!portugueseWord ||
+            !englishWord ||
+            !id_user) {
+            return console.log("These value is null!")
         }
 
         const wordsAlreadyExists = await addWordsRepository.findOne({
+            id_user,
             portugueseWord,
-            englishWord
+            englishWord,
         })
 
         if (wordsAlreadyExists) {
@@ -25,20 +30,12 @@ class AddWordsControllers {
         const NewTranslate = addWordsRepository.create({
             portugueseWord,
             englishWord,
-            id_user: "463a6565-454f-4aea-ab94-7c3a760cddbd"
+            id_user,
         });
         await addWordsRepository.save(NewTranslate);
 
-        return response.status(201).json({
-            message: 'adicionado com sucesso!'
-        })
-    }
-
-    async show(request: Request, response: Response) {
-        const wordList = getCustomRepository(AddWordsRepository);
-        const words = wordList.find()
-
-        return response.send({ words })
+        console.log("adicionado com sucesso!")
+        return response.status(201)
     }
 }
 

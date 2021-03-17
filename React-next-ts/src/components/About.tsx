@@ -1,13 +1,6 @@
 import styles from '../styles/pages/Home.module.css';
 
-export function IndexStart() {
-
-    function onoff() {
-        document
-            .querySelector("#spin")
-            .classList
-            .add("hide")
-    };
+export function About() {
 
     return (
         <div>

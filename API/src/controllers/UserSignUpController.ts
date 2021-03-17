@@ -4,6 +4,8 @@ import { UserSignUpRepository } from '../repositories/UserSignUpRepository'
 import bcrypt from 'bcryptjs'
 import * as yup from 'yup'
 class UserSignUpController {
+
+
     async execute(request: Request, response: Response) {
 
         const schema = yup.object().shape({
@@ -14,6 +16,7 @@ class UserSignUpController {
         try {
             await schema.validate(request.body, { abortEarly: false });
         } catch (err) {
+            console.log("erro")
             return response.status(400).json({
                 error: err,
             });
@@ -23,6 +26,13 @@ class UserSignUpController {
         const userSignUpRepository = getCustomRepository(UserSignUpRepository);
 
         const { name, username, email, password } = request.body;
+
+        if (!name || !username || !email || !password) {
+            console.log("Invalid inputs!")
+            return response.status(400).send({
+                error: "Dados inválidos!"
+            })
+        }
 
         const UserSignAlreadyExists = await userSignUpRepository.findOne({
             username,
@@ -57,13 +67,10 @@ class UserSignUpController {
         })
 
         console.log("User added!")
-        return response.status(200).redirect('/login');
+        return response.status(200).send({
+            message: "usuario criado com sucesso!"
+        });
 
-    }
-
-    async show(request: Request, response: Response) {
-
-        return response.render("../views/signup.html")
     }
 }
 
