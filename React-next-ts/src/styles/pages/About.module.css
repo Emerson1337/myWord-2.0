@@ -1,0 +1,37 @@
+.imgMe {
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    transition: .400s;
+}
+
+.imgMe:hover {
+    border-radius: 40%;
+    -webkit-border-radius: 40%;
+    cursor: pointer;
+}
+
+.content {
+    color: white;
+    padding-top: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.author {
+    font-size: 2rem;
+    margin-left: 1rem;
+}
+.paragraph {
+    padding: 10%;
+    color: white;
+    text-align: initial;
+}
+.createdBy {
+    margin-bottom: 1rem;
+}
+.justFix {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} 

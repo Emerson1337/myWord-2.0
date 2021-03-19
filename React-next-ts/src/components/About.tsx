@@ -1,18 +1,40 @@
 import styles from '../styles/pages/Home.module.css';
-
+import stylesAbout from '../styles/pages/About.module.css'
 export function About() {
 
     return (
         <div>
-            <div className={styles.fadeIn + ' ' + styles.padding}>
+            <div className={styles.fadeIn}>
                 <div className="container">
-                    <div className={styles.text}>
-                        <h1 className={"display-3 " + styles.changeDisplay + " " + styles.typeAnimation}>Welcome to My Words!</h1>
-                        <span>Aqui você enriquece o seu vocabulário e aprende inglês de graça!</span>
-                    </div>
-                    <div className={styles.format}>
-                        <a href="/login"><button id="login" className={"btn btn-outline-light btn-lg btn-block " + styles.formatButton}>START</button></a>
-                    </div>
+                    <section className={stylesAbout.content}>
+                        <div className={stylesAbout.justFix}>
+                            <span className={stylesAbout.createdBy}>Produzido por:</span>
+                            <a href="https://www.github.com/Emerson1337" target="_blank">
+                                <img className={stylesAbout.imgMe} src="https://www.github.com/Emerson1337.png" />
+                            </a>
+                        </div>
+                        <div className={stylesAbout.title}>
+                            <span className={stylesAbout.author}>
+                                Emerson Lucena
+                            </span>
+                            <p>
+                                Web developer
+                                <br />
+                                19 Years
+                            </p>
+                        </div>
+                    </section>
+
+
+                    <section className={stylesAbout.paragraph}>
+                        <p>
+                            O objetivo deste WebSite é te ajudar a anotar palavras e suas traduções em inglês.<br /> <br />
+                            Você percebeu que este site possui uma mesclagem de linguagens entre português e inglês?<br />
+                            Se sim, é intencional. Se não, significa que você está bem habituado com o inglês e sabe o significado
+                            das palavras sem muito esforço, parabéns!
+                        </p>
+                    </section>
+
                 </div>
             </div >
         </div >
