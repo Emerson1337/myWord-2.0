@@ -13,9 +13,6 @@ export function InsertWords() {
             const userJWT = localStorage.getItem('Authorization');
             api.post("/api/insert-words", { portugueseWord, englishWord, userJWT })
                 .then((response) => {
-                    response
-                    setEnglishWord('')
-                    setPortugueseWord('')
                 })
                 .catch((error) => {
                     console.log("ooops! " + error)
@@ -25,6 +22,8 @@ export function InsertWords() {
         } else {
             alert("Escreva palavras nos campos abaixo!")
         }
+        setEnglishWord('')
+        setPortugueseWord('')
     };
 
     return (
