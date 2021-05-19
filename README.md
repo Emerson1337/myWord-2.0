@@ -3,4 +3,4 @@
 
 📙 In this version we've new features, like API, adding the possibility of the user to add words and your translates on you own table on the database.
 
-The technology used here is React, using the framework next.js, and API with NODE, using the framework express, on typescript.
+The technology used here is React, using next.js framework, and API with NODE, using express framework, on typescript.
